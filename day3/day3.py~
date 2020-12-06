@@ -10,10 +10,9 @@ def calcTrees(right, down=1):
         if line[step % width] == '#':
             count += 1
         step += right
-    print(count)
     return count
 
-calcTrees(3)
+print(calcTrees(3))
 
 #part2: move [1,3,5,7] right [1,2] down and count trees
 
