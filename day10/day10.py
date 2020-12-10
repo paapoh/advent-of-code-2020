@@ -1,4 +1,4 @@
-file_input = [int(x) for x in open('input.txt').read().splitlines()]
+file_input = sorted([int(x) for x in open('input.txt').read().splitlines()])
 
 one = 0 
 two = 0
@@ -6,7 +6,7 @@ three = 1
 
 prev = 0
 
-for num in sorted(file_input):
+for num in file_input:
     print(num)
     if num-prev == 3:
         three += 1
@@ -19,3 +19,12 @@ for num in sorted(file_input):
 print(three)
 print(one * three)
 
+def part2(lista):
+    lista.insert(0,0)
+    result = [1] + [0] * (len(lista)-1)
+    for i in range(len(lista)):
+        for j in range(i-3,i):
+            if (lista[i] - lista[j]) <= 3:
+                result[i] += result[j] 
+    return result[-1]
+print(part2(file_input))
